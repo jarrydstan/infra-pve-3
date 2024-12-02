@@ -1,0 +1,25 @@
+#cloud-config
+
+users:
+  - name: jarryd
+    groups: users, admin
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ${ssh_key}
+    sudo: ALL=(ALL) NOPASSWD:ALL
+
+preserve_hostname: false
+manage_etc_hosts: false
+fqdn: ${hostname}.${domain}
+
+runcmd:
+  - apt update
+  - apt install -y qemu-guest-agent
+  - systemctl start qemu-guest-agent
+  - curl -fsSL https://tailscale.com/install.sh | sh
+  - [
+      "sh",
+      "-c",
+      "echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && sudo sysctl -p /etc/sysctl.d/99-tailscale.conf",
+    ]
+  - tailscale up --ssh --accept-routes --authkey=${tailscale_auth_key}
