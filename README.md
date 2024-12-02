@@ -15,9 +15,9 @@ Welcome to my Infrastructure as Code (IaC) project! This repository is dedicated
 
 ## 🛠️ **Technologies Used**
 - **OpenTofu**: For provisioning infrastructure.
+- **Ansible**: For configuring infrastructure.
 - **Proxmox**: Managing virtual machines and containers.
-- **Cloud Providers**: Integrations with Azure, AWS, or other cloud services as needed.
-- **Veeam SureBackup**: For disaster recovery and backup validation.
+- **Proxmox Backup Server**: For disaster recovery and backup validation.
 - **Unifi Network Equipment**: Configuration as part of on-premises networking.
 - **ZFS**: For reliable and performant storage management.
 
