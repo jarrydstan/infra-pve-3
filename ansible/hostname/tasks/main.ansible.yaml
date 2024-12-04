@@ -1,13 +1,13 @@
-- name: set hostname
+- name: Set hostname
   ansible.builtin.hostname:
     name: vm-tofu-test.jarryd.cc
     use: systemd
-- name: localhost
+- name: Localhost
   ansible.builtin.lineinfile:
     path: /etc/hosts
     line: 127.0.0.1 localhost.localdomain localhost
 
-- name: vm-tofu-test.jarryd.cc
+- name: Vm-tofu-test.jarryd.cc
   ansible.builtin.lineinfile:
     path: /etc/hosts
     line: 192.168.1.10 vm-tofu-test.jarryd.cc vm-tofu-test
