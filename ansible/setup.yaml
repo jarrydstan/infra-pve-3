@@ -1,4 +1,0 @@
-- hosts: main
-  roles:
-    - hostname
-    

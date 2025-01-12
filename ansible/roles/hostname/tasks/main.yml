@@ -1,0 +1,24 @@
+- name: Set hostname
+  ansible.builtin.hostname:
+    name: vm-terraform-test.jarryd.cc
+    use: systemd
+
+- name: Localhost
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: 127.0.0.1 localhost.localdomain localhost
+
+- name: Vm-terraform-test.jarryd.cc
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: 192.168.1.10 vm-terraform-test.jarryd.cc vm-terraform-test
+
+- name: Localhost IPv6
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: ::1 localhost.localdomain localhost
+
+- name: Vm-terraform-test.jarryd.cc IPv62
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: 2403:5801:dd7a:1:be24:11ff:fe45:d00 vm-terraform-test.jarryd.cc vm-terraform-test
