@@ -22,24 +22,24 @@
       - vim
     state: present
     update_cache: true
-- name: ensure plocate-updatedb.timer is enabled
+- name: Ensure plocate-updatedb.timer is enabled
   ansible.builtin.systemd:
     name: plocate-updatedb.timer
     state: started
-    enabled: yes
-- name: symlink vim to vi
+    enabled: true
+- name: Symlink vim to vi
   ansible.builtin.file:
     src: /usr/bin/vim
     dest: /usr/bin/vi
     state: link
-- name: scripts directory
+- name: Scripts directory
   ansible.builtin.file:
     path: /root/scripts
     state: directory
     owner: root
     group: root
     mode: "755"
-- name: update pacman mirrors script
+- name: Update pacman mirrors script
   ansible.builtin.copy:
     src: files/pacman-new-mirrorlist.sh
     dest: /root/scripts/pacman-new-mirrorlist.sh

@@ -45,6 +45,9 @@ resource "proxmox_vm_qemu" "vm-terraform-test" {
   serial {
     id = 0
   }
+  vga {
+    type = "virtio"
+  }
   disks {
     ide {
       ide2 {

@@ -1,0 +1,6 @@
+[Match]
+Name=br0
+
+[Network]
+Address=192.168.1.77/24
+IPMasquerade=ipv4

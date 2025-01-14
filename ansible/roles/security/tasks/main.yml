@@ -1,0 +1,4 @@
+- name: Install and configure iptables
+  ansible.builtin.include_tasks: iptables.yml
+- name: Install and configure sshd
+  ansible.builtin.include_tasks: sshd.yml

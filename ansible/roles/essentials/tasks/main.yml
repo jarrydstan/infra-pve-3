@@ -16,3 +16,9 @@
   notify: Restart network
 - name: Install packages
   ansible.builtin.include_tasks: packages.yaml
+- name: Install and configure cronie
+  ansible.builtin.include_tasks: cronie.yml
+- name: Install and configure br0
+  ansible.builtin.include_tasks: br0.yml
+- name: Install and configure loopback
+  ansible.builtin.include_tasks: loopback.yml

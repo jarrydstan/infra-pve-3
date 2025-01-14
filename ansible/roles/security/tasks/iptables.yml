@@ -1,0 +1,15 @@
+- name: Ensure iptables is started and enabled at boot
+  ansible.builtin.systemd:
+    name: iptables
+    state: started
+    enabled: true
+
+- name: Iptables.rules
+  ansible.builtin.copy:
+    src: iptables.rules
+    dest: /etc/iptables/iptables.rules
+    owner: root
+    group: root
+    mode: "644"
+    backup: true
+  notify: Restart iptables
