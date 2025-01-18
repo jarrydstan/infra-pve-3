@@ -1,0 +1,35 @@
+- name: Install docker
+  community.general.pacman:
+    update_cache: true
+    name: docker
+    state: present
+  notify: Restart docker
+
+- name: /etc/docker directory
+  ansible.builtin.file:
+    path: /etc/docker
+    state: directory
+    owner: root
+    group: root
+    mode: "755"
+
+- name: Daemon.json
+  ansible.builtin.copy:
+    src: files/daemon.json
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: "644"
+  notify: Restart docker
+
+- name: Ensure Docker is started and enabled at boot
+  ansible.builtin.systemd:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Docker sdk # Needed for checkmk Docker integration
+  community.general.pacman:
+    update_cache: true
+    name: python-docker
+    state: present

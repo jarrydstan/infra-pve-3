@@ -1,0 +1,16 @@
+{
+  "dns": [
+    "192.168.1.60",
+    "192.168.1.1",
+    "2403:5801:dd7a:1:e5ac:6bdf:e4e6:fcff"
+  ],
+  "experimental": true,
+  "ipv6": true,
+  "fixed-cidr-v6": "fd16:dd1a:c8e7::/64",
+  "ip6tables": true,
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  }
+}
