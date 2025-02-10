@@ -8,9 +8,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.vault_password
+HR650X.yaml
+credentials.ini
 # C extensions
 *.so
-credentials.ini
 
 # Distribution / packaging
 .Python
