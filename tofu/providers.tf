@@ -12,9 +12,12 @@ variable "tailscale_auth_key" {}
 variable "pve_user" {}
 variable "pve_password" {}
 variable "pve_host" {}
+variable "pve0_host" {}
 variable "ssh_public_key" {}
 variable "ssh_private_key" {}
 variable "vm_hostname" {}
+variable "vm_hostname0" {}
+variable "vm_hostname1" {}
 variable "vm_domain" {}
 variable "ssh_keys" {}
 variable "ci_user" {}
